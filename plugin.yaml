@@ -1,0 +1,32 @@
+# yaml plugin metadata
+ 
+name: local script
+version: %%VERSION%%
+rundeckPluginVersion: 1.0
+author: David Dufberg Tøttrup <david@dufberg.se>
+date: %%DATE%%
+providers:
+  - name: local-script
+    description: "Execute a script locally"
+    service: WorkflowNodeStep
+    plugin-type: script
+    script-interpreter: /bin/bash
+    script-file: run.sh
+    script-args:
+    config:
+      - name: script
+        title: Script
+        type: String
+        required: false
+        description: "Script to execute locally."
+        scope: Instance
+        renderingOptions:
+          displayType: MULTI_LINE
+      - name: interpreter
+        title: Interpreter
+        type: String
+        description: Command to execute script file. Default is /bin/bash
+        scope: Instance
+        renderingOptions:
+          grouping: secondary
+          groupName: Advanced
